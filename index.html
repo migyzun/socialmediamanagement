@@ -367,8 +367,11 @@
                 <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
                     <h3 style="color: #667eea; text-align: center; margin-bottom: 1.5rem; font-size: 1.8rem;">Rapid TikTok Growth - Just Started 1 Month Ago</h3>
                     <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Crect width='300' height='600' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23999'%3ETikTok Profile Screenshot%3C/text%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='14' fill='%23999'%3E@migz__z%3C/text%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='14' fill='%23999'%3E60.1K Likes%3C/text%3E%3C/svg%3E" alt="TikTok Profile" style="max-width: 100%; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <img src="https://i.imgur.com/placeholder.jpg" alt="TikTok Profile @migz__z" style="max-width: 350px; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     </div>
+                    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: -1rem; margin-bottom: 2rem;">
+                        <em>Upload your TikTok screenshot to replace this placeholder</em>
+                    </p>
                     <p style="text-align: center; font-size: 1.1rem; color: #333; line-height: 1.8;">
                         Recently launched my TikTok presence just <strong>1 month ago</strong> and have already accumulated <strong style="color: #667eea; font-size: 2rem;">770,000+ views</strong> with <strong style="color: #667eea;">exponential growth</strong> continuing daily. Specializing in Houston lifestyle content, travel recommendations, and community engagement with proven viral reach and consistently trending content.
                     </p>
@@ -481,9 +484,6 @@
                     <textarea id="message" name="message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                <div id="successMessage" style="display: none; text-align: center; color: #667eea; font-size: 1.2rem; font-weight: bold; margin-top: 1rem; padding: 1rem; background: #e8f5e9; border-radius: 8px;">
-                    ✓ Successfully Submitted! I'll get back to you soon.
-                </div>
             </form>
             
             <div style="text-align: center; margin-top: 3rem; color: white;">
@@ -508,7 +508,6 @@
     <script>
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -528,8 +527,15 @@
                 });
 
                 if (response.ok) {
-                    form.style.display = 'none';
-                    successMessage.style.display = 'block';
+                    submitBtn.style.background = '#4CAF50';
+                    submitBtn.textContent = '✓ Successfully Submitted!';
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        submitBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                    }, 3000);
                 } else {
                     alert('Oops! There was a problem submitting your form. Please try again.');
                     submitBtn.textContent = 'Send Message';
